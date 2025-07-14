@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "overrides": {
+    "@polkadot/types": "10.9.1",
+    "@polkadot/util": "12.6.2" 
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,8 +14,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@polkadot/api": "^16.4.1",
-    "@polkadot/extension-dapp": "^0.61.3",
+    "@polkadot/api": "^10.9.1",
+    "@polkadot/extension-dapp": "^0.46.9",
     "crypto-js": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

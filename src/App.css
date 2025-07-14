@@ -17,6 +17,187 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+/* src/App.css */
+:root {
+  --primary-glow: #a855f7; /* Purple */
+  --secondary-glow: #0ea5e9; /* Blue */
+  --accent-color: #5eead4;   /* Teal */
+  --success-color: #4ade80; /* Green */
+  --error-color: #f87171;   /* Red */
+  --bg-dark: #111827;       /* Dark Gray */
+  --bg-light: #1f2937;      /* Lighter Gray */
+  --text-color: #e5e7eb;    /* Light Gray Text */
+  --text-dim: #9ca3af;       /* Dimmer Text */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  background-image: radial-gradient(circle at 1% 1%, var(--primary-glow), rgba(255, 255, 255, 0) 25%),
+                    radial-gradient(circle at 99% 99%, var(--secondary-glow), rgba(255, 255, 255, 0) 25%);
+  background-attachment: fixed;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Base card style for UI sections */
+.card {
+  background-color: rgba(31, 41, 55, 0.8); /* bg-light with transparency */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header styles */
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form element styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--bg-light);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3);
+}
+
+/* Main action button */
+.main-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+  animation: gradient-animation 4s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+}
+
+.main-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status display styles */
+.status-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  padding: 1rem;
+  font-size: 20px;
+}
+.status-display.success { color: var(--success-color); }
+.status-display.error { color: var(--error-color); }
+.status-display.info { color: var(--text-dim); }
+
+/* Spinner animation */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Result display */
+.result-display {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  word-break: break-all;
+  animation: fadeIn 0.5s;
+}
+.result-display.success {
+  background-color: rgba(74, 222, 128, 0.1);
+  border: 1px solid var(--success-color);
+}
+.result-display.error {
+  background-color: rgba(248, 113, 113, 0.1);
+  border: 1px solid var(--error-color);
+}
+.result-display a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.result-display a:hover {
+  text-decoration: underline;
+}
 
 @keyframes logo-spin {
   from {

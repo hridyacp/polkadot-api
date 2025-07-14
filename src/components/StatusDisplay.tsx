@@ -1,23 +1,32 @@
 import React from 'react';
+import { ApiPromise } from '@polkadot/api';
+import type { InjectedAccountWithMeta } from '@polkadot/extension-dapp/types';
 
 interface Props {
-  api: any; 
-  accounts: any[];
+  api: ApiPromise | undefined;
+  accounts: InjectedAccountWithMeta[];
 }
 
 export const StatusDisplay: React.FC<Props> = ({ api, accounts }) => {
-  let statusText = 'Initializing...';
-  if (api && accounts.length === 0) {
-    statusText = 'Connected to chain. No accounts found in extension.';
-  } else if (api && accounts.length > 0) {
-    statusText = 'Ready!';
-  } else if (!api) {
-    statusText = 'Connecting to chain...';
+  let statusText = '';
+  let statusClass = 'info';
+  let isLoading = false;
+
+  if (!api) {
+    statusText = 'Connecting to blockchain...';
+    isLoading = true;
+  } else if (accounts.length === 0) {
+    statusText = 'No accounts found. Please check your Polkadot.js extension.';
+    statusClass = 'error';
+  } else {
+    statusText = 'Connected and ready.';
+    statusClass = 'success';
   }
 
   return (
-    <div style={{ background: '#eee', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
-      <strong>Connection Status:</strong> {statusText}
+    <div className={`status-display ${statusClass}`}>
+      {isLoading && <div className="spinner"></div>}
+      <span>{statusText}</span>
     </div>
   );
 };
