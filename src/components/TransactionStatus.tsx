@@ -1,6 +1,6 @@
 import React from 'react';
-
-const WS_PROVIDER = 'wss://westend-rpc.polkadot.io';
+//Asset hub parity network
+const WS_PROVIDER = 'wss://westend-asset-hub-rpc.polkadot.io';
 
 interface Props {
   blockHash: string;

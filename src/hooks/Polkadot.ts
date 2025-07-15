@@ -3,7 +3,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types"; 
 
-const WS_PROVIDER = 'wss://westend-rpc.polkadot.io';
+const WS_PROVIDER = 'wss://westend-asset-hub-rpc.polkadot.io';
 const APP_NAME = 'Decentralized-Notary-dApp';
 
 export const usePolkadot = () => {
