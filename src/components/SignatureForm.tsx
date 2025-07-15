@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ApiPromise } from '@polkadot/api';
 import { web3FromSource } from '@polkadot/extension-dapp';
-import type { InjectedAccountWithMeta } from '@polkadot/extension-dapp';
+import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types"; 
 import * as CryptoJS from 'crypto-js';
 import { Spinner } from './Spinner';
 
@@ -27,8 +27,8 @@ export const SignatureForm: React.FC<Props> = ({ api, selectedAccount }) => {
     // --- KEY CHANGE ---
     // We create a unique, full statement that includes the user's address.
     // This makes the signature personally attributable and verifiable.
-    const fullStatement = `Signature by ${selectedAccount.address}: ${statementText}`;
-    const statementHash = '0x' + CryptoJS.SHA256(fullStatement).toString(CryptoJS.enc.Hex);
+    let fullStatement = `Signature by ${selectedAccount.address}: ${statementText}`;
+    let statementHash = '0x' + CryptoJS.SHA256(fullStatement).toString(CryptoJS.enc.Hex);
 
     const injector = await web3FromSource(selectedAccount.meta.source);
     //const tx = api.tx.system.remarkWithEvent(statementHash);
@@ -39,6 +39,7 @@ export const SignatureForm: React.FC<Props> = ({ api, selectedAccount }) => {
     const data = await api.query.system.account(selectedAccount.address);
     
     console.log(`${now}: balance of  ${data}`);
+  
 
    
     try {

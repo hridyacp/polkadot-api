@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WS_PROVIDER = 'ws://127.0.0.1:9944';
+const WS_PROVIDER = 'wss://westend-rpc.polkadot.io';
 
 interface Props {
   blockHash: string;

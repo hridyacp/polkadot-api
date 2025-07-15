@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InjectedAccountWithMeta } from '@polkadot/extension-dapp/types';
+import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types"; 
 
 interface Props {
   accounts: InjectedAccountWithMeta[];
