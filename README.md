@@ -1,15 +1,19 @@
 # React + TypeScript + Vite
+Frontend for the application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Install dependencies for polkadot api and extension
+  npm install @polkadot/api
+  npm install @polkadot/extension-dapp
 
-Currently, two official plugins are available:
+## Add RPC URL and set up account and network 
+Add polkadot.js extension to browser
+Add RPC URL 'wss://westend-asset-hub-rpc.polkadot.io' for Westend Asset Hub.  
+Add network and connect accounts from polkadot.js extension to https://polkadot.js.org/apps
+Get the test faucet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## SignAndSend to add message to polkadot blockchain
+signAndSend to polkadot blockchain
 
 ```js
 export default tseslint.config([

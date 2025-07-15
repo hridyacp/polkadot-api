@@ -1,5 +1,5 @@
 import React from 'react';
-//Asset hub parity network
+
 const WS_PROVIDER = 'wss://westend-asset-hub-rpc.polkadot.io';
 
 interface Props {
